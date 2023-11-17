@@ -9,7 +9,7 @@ namespace OOPMethods
     internal static class ConsoleHelper
     {
         /// <summary>
-        /// 
+        /// Prints a message on the screen
         /// </summary>
         /// <param name="message">The message to print</param>
         public static void PrintMessage(string message)
