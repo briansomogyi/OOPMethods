@@ -10,6 +10,10 @@
             
             ConsoleHelper.PrintMessage("test", 3);
 
+            Console.WriteLine(MathHelper.Factorial(5));
+
+            int[] ints = {1,2, 3, 4, 5};
+            ArrayHelper.IterateAndPrint(ints);
         }
     }
 }
