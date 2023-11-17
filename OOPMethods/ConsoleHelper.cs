@@ -8,6 +8,10 @@ namespace OOPMethods
 {
     internal static class ConsoleHelper
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message">The message to print</param>
         public static void PrintMessage(string message)
         {
             PrintMessage(string.Empty, message, 1);
@@ -25,14 +29,18 @@ namespace OOPMethods
 
         public static void PrintMessage(string label, string message, int count)
         {
-            if (!string.IsNullOrEmpty(label))
+            if (count > 0)
             {
-                Console.Write($"{label}: ");
-            }
-            
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine(message);
+                for (int i = 0; i < count; i++)
+                {
+                    string formattedLabel = string.Empty;
+                    if (!string.IsNullOrWhiteSpace(label))
+                    {
+                        formattedLabel = $"{label}: ";
+                    }
+
+                    Console.WriteLine($"{formattedLabel}{message}");
+                }
             }
         }
     }
