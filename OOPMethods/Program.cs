@@ -14,6 +14,15 @@
 
             int[] ints = {1,2, 3, 4, 5};
             ArrayHelper.IterateAndPrint(ints);
+
+            ConsoleHelperWithDefaultArgs.PrintMessage("test");
+            ConsoleHelperWithDefaultArgs.PrintMessage("message", "label");
+            ConsoleHelperWithDefaultArgs.PrintMessage("message", "label", 3);
+
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(10)}");
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(15, 3)}");
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(20, 5, 9)}");
+
         }
     }
 }
