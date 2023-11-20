@@ -19,10 +19,69 @@
             ConsoleHelperWithDefaultArgs.PrintMessage("message", "label");
             ConsoleHelperWithDefaultArgs.PrintMessage("message", "label", 3);
 
-            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(10)}");
-            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(15, 3)}");
-            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(20, 5, 9)}");
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(unitPrice: 10)}");
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(unitPrice: 15, quantity: 3)}");
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(unitPrice: 20, quantity: 5, vatPercent: 9)}");
 
+            // Mixing positional arguments with named arguments
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(20, vatPercent: 9)}");
+
+            // Named-arguments allow skipping parameters
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(unitPrice: 20, vatPercent: 9)}");
+
+            // or even changing the parameters order
+            Console.WriteLine($"Price: {PriceCalculator.CalculatePrice(vatPercent: 9, quantity: 5, unitPrice: 20)}");
+
+            int result = 10;
+            Console.WriteLine($"Before increment: {result}");
+            Increment(result);
+            Console.WriteLine($"After increment: {result}");
+
+            Person person = new Person
+            {
+                FirstName = "John",
+                LastName = "Doe"
+            };
+
+            Console.WriteLine($"Before calling SayHello: {person.FirstName} {person.LastName}");
+            SayHello(person);
+            Console.WriteLine($"After calling SayHello: {person.FirstName} {person.LastName}");
+
+            person = new Person
+            {
+                FirstName = "John",
+                LastName = "Doe"
+            };
+
+            Console.WriteLine($"Before calling SayHello2: {person.FirstName} {person.LastName}");
+            SayHello2(person);
+            Console.WriteLine($"After calling SayHello2: {person.FirstName} {person.LastName}");
+
+        }
+
+        private static void Increment(int value ) 
+        {
+            Console.WriteLine($"Before increment: {value}");
+            value++;
+            Console.WriteLine($"After increment: {value}");
+        }
+
+        private static void SayHello(Person person)
+        { 
+            Console.WriteLine($"Before SayHello change: {person.FirstName} {person.LastName}");
+            person.LastName = "Changed";
+            Console.WriteLine($"After SayHello change: {person.FirstName} {person.LastName}");
+        }
+
+        private static void SayHello2(Person person)
+        {
+            Console.WriteLine($"Before SayHello2 change: {person.FirstName} {person.LastName}");
+            person = new Person
+            {
+                FirstName = "John",
+                LastName = "Changed"
+            };
+            Console.WriteLine($"After SayHello2 change: {person.FirstName} {person.LastName}");
         }
     }
 }
