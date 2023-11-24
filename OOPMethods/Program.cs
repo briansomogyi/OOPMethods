@@ -37,25 +37,19 @@
             Increment(ref result);
             Console.WriteLine($"After increment: {result}");
 
-            string numberAsString=Console.ReadLine();
+            string? numberAsString = Console.ReadLine();
             int.TryParse(numberAsString, out result);
+            IncrementWithOut(result, out result);
+            Console.WriteLine(result);
 
-            Person person = new Person
-            {
-                FirstName = "John",
-                LastName = "Doe"
-            };
+            Person person = new Person("John", "Doe");
 
             Console.WriteLine($"Before calling SayHello: {person.FirstName} {person.LastName}");
             SayHello(ref person);
             Console.WriteLine($"After calling SayHello: {person.FirstName} {person.LastName}");
 
-            person = new Person
-            {
-                FirstName = "John",
-                LastName = "Doe"
-            };
-
+            person = new Person("John", "Doe");
+            
             Console.WriteLine($"Before calling SayHello2: {person.FirstName} {person.LastName}");
             SayHello2(ref person);
             Console.WriteLine($"After calling SayHello2: {person.FirstName} {person.LastName}");
@@ -79,12 +73,15 @@
         private static void SayHello2(ref Person person)
         {
             Console.WriteLine($"Before SayHello2 change: {person.FirstName} {person.LastName}");
-            person = new Person
-            {
-                FirstName = "John",
-                LastName = "Changed"
-            };
+            person = new Person("John", "Changed");
             Console.WriteLine($"After SayHello2 change: {person.FirstName} {person.LastName}");
+        }
+
+        private static void IncrementWithOut(int prevValue,out int afterIncrementValue)
+        {
+            Console.WriteLine($"Before increment: {prevValue}");
+            afterIncrementValue = prevValue + 1;
+            Console.WriteLine($"After increment: {afterIncrementValue}");
         }
     }
 }
