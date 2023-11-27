@@ -42,8 +42,16 @@
             IncrementWithOut(result, out result);
             Console.WriteLine(result);
 
-            Person person = new Person("John", "Doe");
+            Point point = new Point();
+            point = new Point()
+            {
+                X = 100,
+                Y = 100,
+            };
+            Rectangle rectangle = new Rectangle(new Point(100, 100), 50, 70);
 
+            Person person = new Person("John", "Doe");
+            
             Console.WriteLine($"Before calling SayHello: {person.FirstName} {person.LastName}");
             SayHello(ref person);
             Console.WriteLine($"After calling SayHello: {person.FirstName} {person.LastName}");
@@ -54,6 +62,29 @@
             SayHello2(ref person);
             Console.WriteLine($"After calling SayHello2: {person.FirstName} {person.LastName}");
 
+            person = new Person();
+            person.FirstName = "John";
+            person.LastName = "Doe";
+            person.DateOfBirth = DateTime.Now;
+
+            person = new Person()
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = DateTime.Now,
+            };
+
+            person = new()
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = DateTime.Now,
+            };
+
+            person = new Person("John", "Doe")
+            {
+                DateOfBirth = DateTime.Now,
+            };
         }
 
         private static void Increment(ref int value)

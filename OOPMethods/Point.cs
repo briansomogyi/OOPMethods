@@ -14,7 +14,7 @@ namespace OOPMethods
             Y = y;
         }
 
-        public int X {  get; }
-        public int Y { get; }
+        public int X { get; init; }
+        public int Y { get; init; }
     }
 }
