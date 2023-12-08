@@ -50,6 +50,9 @@
             };
             Rectangle rectangle = new Rectangle(new Point(100, 100), 50, 70);
 
+            int[] arrayOfNumbers = new int[10];
+            Rectangle[] arrayOfRectangles = new Rectangle[10];
+
             Person person = new Person("John", "Doe");
             
             Console.WriteLine($"Before calling SayHello: {person.FirstName} {person.LastName}");
